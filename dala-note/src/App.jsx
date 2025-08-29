@@ -1,12 +1,7 @@
-import './components/styles/app.css'
+import Dashboard from "./pages/dashboard";
 
 function App() {
-
-  return (
-    <>
-     <h1 className='bg-amber-600'>Hello world</h1>
-    </>
-  )
+  return <Dashboard />;
 }
 
-export default App
+export default App;
