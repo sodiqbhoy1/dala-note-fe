@@ -95,7 +95,54 @@ git clone <https://github.com/Dala-Note/dala-note-fe.git>
 cd Dala-Note/dala-note-fe/dala-note
 ```
 
-### 2. Install Dependencies
+### 2. Set Up Development Branch
+
+**Important: Always develop new features on the development branch, not main.**
+
+```bash
+# Switch to development branch
+git checkout development
+
+# If development branch doesn't exist, create it from main
+git checkout -b development
+
+# Pull latest changes from development branch
+git pull origin development
+```
+
+### 3. Adding New Features
+
+When adding a new feature, follow this workflow:
+
+```bash
+# 1. Create a new feature branch from development
+git checkout development
+git pull origin development
+git checkout -b feature/your-feature-name
+
+# 2. Make your changes and commit them
+git add .
+git commit -m "Add: your feature description"
+
+# 3. Push your feature branch
+git push origin feature/your-feature-name
+
+# 4. Create a Pull Request to merge into development branch (NOT main)
+# Use your Git hosting platform (GitHub, GitLab, etc.) to create PR from:
+# feature/your-feature-name → development
+
+# 5. After PR is approved and merged, clean up
+git checkout development
+git pull origin development
+git branch -d feature/your-feature-name
+```
+
+**Branch Strategy:**
+- `main` - Production-ready code only
+- `development` - Integration branch for new features
+- `feature/*` - Individual feature branches
+
+### 4. Install Dependencies
 
 ```bash
 npm install
